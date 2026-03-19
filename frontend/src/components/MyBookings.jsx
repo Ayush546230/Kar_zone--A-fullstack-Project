@@ -43,10 +43,10 @@ const formatDate = (dateString) => {
   return Number.isNaN(d.getTime())
     ? String(dateString)
     : d.toLocaleDateString("en-US", {
-        day: "numeric",
-        month: "short",
-        year: "numeric",
-      });
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
 };
 
 const formatPrice = (price) => {
@@ -132,9 +132,8 @@ const normalizeBooking = (booking) => {
       phone: booking.phone || safeAccess(() => booking.user?.phone) || "",
       address:
         address.street || address.city || address.state
-          ? `${address.street || ""}${address.city ? ", " + address.city : ""}${
-              address.state ? ", " + address.state : ""
-            }`
+          ? `${address.street || ""}${address.city ? ", " + address.city : ""}${address.state ? ", " + address.state : ""
+          }`
           : safeAccess(() => booking.user?.address) || "",
     },
     dates: { pickup: pickupDate, return: returnDate },
@@ -496,10 +495,10 @@ const MyBookings = () => {
       const rawData = Array.isArray(response.data)
         ? response.data
         : response.data?.data ||
-          response.data?.bookings ||
-          response.data?.rows ||
-          response.data ||
-          [];
+        response.data?.bookings ||
+        response.data?.rows ||
+        response.data ||
+        [];
 
       const normalized = (Array.isArray(rawData) ? rawData : []).map(
         normalizeBooking
@@ -515,8 +514,8 @@ const MyBookings = () => {
       } else {
         setError(
           err.response?.data?.message ||
-            err.message ||
-            "Failed to load bookings"
+          err.message ||
+          "Failed to load bookings"
         );
       }
       setLoading(false);
@@ -548,7 +547,7 @@ const MyBookings = () => {
 
         const updated = normalizeBooking(
           response.data ||
-            response.data?.data || { _id: bookingId, status: "cancelled" }
+          response.data?.data || { _id: bookingId, status: "cancelled" }
         );
         setBookings((prev) =>
           prev.map((b) => (b.id === bookingId ? updated : b))
@@ -557,8 +556,8 @@ const MyBookings = () => {
       } catch (err) {
         alert(
           err.response?.data?.message ||
-            err.message ||
-            "Failed to cancel booking"
+          err.message ||
+          "Failed to cancel booking"
         );
       }
     },

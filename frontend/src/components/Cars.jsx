@@ -51,7 +51,7 @@ const Cars = () => {
     if (abortControllerRef.current) {
       try {
         abortControllerRef.current.abort();
-      } catch (e) {}
+      } catch (e) { }
     }
     const controller = new AbortController();
     abortControllerRef.current = controller;
@@ -435,9 +435,8 @@ const Cars = () => {
 
                     <button
                       onClick={() => handleBook(car, id)}
-                      className={`${carPageStyles.bookButton} ${
-                        disabled ? "opacity-60 cursor-not-allowed" : ""
-                      }`}
+                      className={`${carPageStyles.bookButton} ${disabled ? "opacity-60 cursor-not-allowed" : ""
+                        }`}
                       aria-label={`Book ${carName}`}
                       title={
                         disabled

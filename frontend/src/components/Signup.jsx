@@ -108,25 +108,22 @@ const Signup = () => {
     <div className={signupStyles.pageContainer}>
       <div className={signupStyles.animatedBackground.base}>
         <div
-          className={`${signupStyles.animatedBackground.orb1} ${
-            isActive
+          className={`${signupStyles.animatedBackground.orb1} ${isActive
               ? "translate-x-10 sm:translate-x-20 translate-y-5 sm:translate-y-10"
               : ""
-          }`}
+            }`}
         ></div>
         <div
-          className={`${signupStyles.animatedBackground.orb2} ${
-            isActive
+          className={`${signupStyles.animatedBackground.orb2} ${isActive
               ? "-translate-x-10 sm:-translate-x-20 -translate-y-5 sm:-translate-y-10"
               : ""
-          }`}
+            }`}
         ></div>
         <div
-          className={`${signupStyles.animatedBackground.orb3} ${
-            isActive
+          className={`${signupStyles.animatedBackground.orb3} ${isActive
               ? "-translate-x-5 sm:-translate-x-10 translate-y-10 sm:translate-y-20"
               : ""
-          }`}
+            }`}
         ></div>
       </div>
       <a href="/" className={signupStyles.backButton}>
@@ -134,9 +131,8 @@ const Signup = () => {
         <span className="font-medium text-xs sm:text-sm">Back to Home</span>
       </a>
       <div
-        className={`${signupStyles.signupCard.container} ${
-          isActive ? "scale-100 opacity-100" : "scale-90 opacity-0"
-        }`}
+        className={`${signupStyles.signupCard.container} ${isActive ? "scale-100 opacity-100" : "scale-90 opacity-0"
+          }`}
       >
         <div
           className={signupStyles.signupCard.card}

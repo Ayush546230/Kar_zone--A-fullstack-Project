@@ -90,7 +90,7 @@ export const createCheckoutSession = async (req, res) => {
     try {
       stripe = getStripe();
     } catch (err) {
-      await Booking.findByIdAndDelete(booking._id).catch(() => {});
+      await Booking.findByIdAndDelete(booking._id).catch(() => { });
       return res.status(500).json({
         success: false,
         message: "Payment not completed",
@@ -130,7 +130,7 @@ export const createCheckoutSession = async (req, res) => {
         },
       });
     } catch (stripeErr) {
-      await Booking.findByIdAndDelete(booking._id).catch(() => {});
+      await Booking.findByIdAndDelete(booking._id).catch(() => { });
       return res.status(500).json({
         success: false,
         message: "Failed to create Stripe Checkout Session",

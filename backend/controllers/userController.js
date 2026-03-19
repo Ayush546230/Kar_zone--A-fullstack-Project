@@ -94,34 +94,34 @@ export async function login(req, res) {
       });
     }
     const user = await User.findOne({ email });
-    if (!user) 
+    if (!user)
       return res.status(401).json({
         success: false,
         message: "Invalid email or password",
       });
 
-      const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch)
-        return res.status(401).json({
-          success: false,
-          message: "Invalid email or password",
-        });
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch)
+      return res.status(401).json({
+        success: false,
+        message: "Invalid email or password",
+      });
 
-      const token=jwt.sign({id:user._id},JWT_SECRET,{expiresIn:'24h'});
-      return res.status(200).json({
-        success:true,
-        message:'Login Successful',
-        token,
-        user:{
-          id:user._id,
-          name:user.name,
-          email:user.email
-        }
-      })  
-    
+    const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '24h' });
+    return res.status(200).json({
+      success: true,
+      message: 'Login Successful',
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email
+      }
+    })
+
   } catch (err) {
-    console.error('Login error',err)
-     return res.status(500).json({
+    console.error('Login error', err)
+    return res.status(500).json({
       success: false,
       message: "Server Error",
     });
